@@ -1,0 +1,17 @@
+name: Training Failure
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/training-failure.yml"
+jobs:
+  check-label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check output label
+        run: |
+          echo "Checking sample output label..."
+          echo "ERROR: expected output label 'Packet Sample' but src/sample-output.ts contains 'Packet Sampel'"
+          exit 1
