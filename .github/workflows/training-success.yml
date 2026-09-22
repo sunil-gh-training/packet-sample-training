@@ -1,0 +1,15 @@
+name: Training Success
+on:
+  workflow_dispatch:
+jobs:
+  sample-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run sample check
+        run: echo "Training sample check passed on $GITHUB_REF_NAME" | tee sample-result.txt
+      - name: Upload sample artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-artifact
+          path: sample-result.txt
