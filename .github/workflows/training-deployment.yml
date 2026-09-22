@@ -1,0 +1,13 @@
+name: Training Deployment
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: training
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simulated deploy
+        run: echo "Deploying commit $GITHUB_SHA to the training environment (simulation)"
