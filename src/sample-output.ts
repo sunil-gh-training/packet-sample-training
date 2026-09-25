@@ -1,4 +1,4 @@
-export const outputLabel = "Packet Sampel";
+export const outputLabel = "Packet Sample";
 
 export function printLabel(): void {
   console.log(`Output label: ${outputLabel}`);
