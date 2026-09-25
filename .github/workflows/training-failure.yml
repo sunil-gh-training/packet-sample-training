@@ -1,10 +1,13 @@
 name: Training Failure
+
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - ".github/workflows/training-failure.yml"
+      - "src/sample-output.ts"
+
 jobs:
   check-label:
     runs-on: ubuntu-latest
@@ -13,5 +16,11 @@ jobs:
       - name: Check output label
         run: |
           echo "Checking sample output label..."
-          echo "ERROR: expected output label 'Packet Sample' but src/sample-output.ts contains 'Packet Sampel'"
-          exit 1
+          echo "Documented label in README.md: Packet Sample"
+          grep -n outputLabel src/sample-output.ts
+          if grep -q "Packet Sample" src/sample-output.ts; then
+            echo "OK: src/sample-output.ts uses the documented output label."
+          else
+            echo "ERROR: expected output label 'Packet Sample' but src/sample-output.ts contains 'Packet Sampel'"
+            exit 1
+          fi
