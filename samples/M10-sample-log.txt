@@ -1,0 +1,4 @@
+2026-09-22T10:15:03Z INFO  packet-sample: processing packet 0001
+2026-09-22T10:15:03Z INFO  packet-sample: expected label "Packet Sample"
+2026-09-22T10:15:03Z ERROR packet-sample: output label mismatch -> got "Packet Sampel"
+2026-09-22T10:15:03Z INFO  packet-sample: finished with 1 error
