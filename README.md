@@ -11,3 +11,12 @@ The sample tool prints the output label **Packet Sample** for every processed pa
 - `REQUIREMENTS.md` – requirements brief for this release
 - `docs/operations.md` – operations guide
 - `samples/sample-log.txt` – harmless sample log excerpt
+
+## Usage
+Run the sample with:
+
+```bash
+npx ts-node src/sample-output.ts
+```
+
+It prints the configured output label to the console.
